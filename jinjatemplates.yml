@@ -1,0 +1,33 @@
+- name: Deploy EVE lab configuration
+  connection: network_cli
+  hosts: all
+  gather_facts: false
+  vars:
+    cli:
+      username: cisco
+      password: cisco
+      host: 192.168.1.150
+    ansible_network_os : ios
+  tasks:
+    - name: deploy router configuration
+      ios_config:
+        provider: "{{ cli }}"
+        before:
+          - "default interface {{ item.interface }}"
+        lines:
+          - "ip address {{ item.address }}"
+        after:
+          - no shutdown
+        parents: "interface {{ item.interface }}"
+        match: strict
+      with_items:
+        - { interface : FastEthernet1/1 }
+        - { interface : FastEthernet1/2 }
+        - { interface : FastEthernet1/3 }
+        - { interface : FastEthernet1/4 }
+        - { interface : FastEthernet1/5 }
+        - { interface : FastEthernet1/6 }
+        - { interface : FastEthernet1/7 }
+        - { interface : FastEthernet1/8 }
+        - {address : 192.168.1.25 }
+        - {address : 192.168.2.25 }
