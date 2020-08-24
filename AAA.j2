@@ -1,0 +1,6 @@
+aaa new-model
+aaa authentication login default group tacacs+ local
+aaa authorization exec default group tacacs+ local
+username cisco privilege 15 secret cisco
+tacacs-server host 192.168.1.25 key testing123
+tacacs-server host 192.168.2.25 key testing123
