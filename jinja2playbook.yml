@@ -1,0 +1,27 @@
+---
+  - name: CISCO devices configurations
+    hosts: all
+    gather_facts: no
+    connection: network_cli
+    vars:
+      ios_provider:
+        username: cisco
+        password: cisco
+        host: all
+      ansible_network_os: ios
+
+    tasks:
+      - name: AAA configurations for cisco devices
+        ios_config:
+          src: "AAA.j2"
+          provider: "{{ ios_provider }}"
+
+      - name: SNMP configurations for cisco devices
+        ios_config:
+           src: "SNMP.j2"
+           provider: "{{ ios_provider }}"
+
+      - name: Interface configurations for cisco devices
+        ios_config:
+           src: "Interface.j2"
+           provider: "{{ ios_provider }}"
