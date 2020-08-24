@@ -1,1 +1,50 @@
+---
+  - name: CISCO devices configurations
+    hosts: all
+    gather_facts: no
+    connection: network_cli
+    vars:
+      username: cisco
+      password: cisco
+      ansible_network_os: ios
 
+    tasks:
+      - name: AAA configurations for cisco devices
+        ios_config:
+          commands:
+            - aaa new-model
+            - aaa authentication login default group tacacs+ local
+            - aaa authorization exec default group tacacs+ local
+            - username cisco privilege 15 secret cisco
+            - tacacs-server host 192.168.1.25 key testing123
+            - tacacs-server host 192.168.2.25 key testing123
+
+      - name: AAA configurations for cisco devices
+        ios_config:
+          commands:
+            - snmp-server community respirolab RO
+            - snmp-server community respirolabwrite RW 10
+            - snmp-server trap-source Loopback1
+            - snmp-server host 192.168.1.25
+            - snmp-server location Sydney
+            - snmp-server contact lab@respiro.com.au
+            - snmp-server system-shutdown
+
+      - name: deploy router configuration
+        ios_config:
+            provider: "{{ cli }}"
+            before:
+              - "default interface {{ item.interface }}"
+            after:
+              - no shutdown
+            parents: "interface {{ item.interface }}"
+            match: strict
+        with_items:
+            - { interface : FastEthernet1/1 }
+            - { interface : FastEthernet1/2 }
+            - { interface : FastEthernet1/3 }
+            - { interface : FastEthernet1/4 }
+            - { interface : FastEthernet1/5 }
+            - { interface : FastEthernet1/6 }
+            - { interface : FastEthernet1/7 }
+            - { interface : FastEthernet1/8 }
