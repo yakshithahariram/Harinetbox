@@ -2,7 +2,7 @@
   - name: CISCO devices configurations
     hosts: all
     gather_facts: False
-    connection: local
+    connection: network_cli
     
     tasks:
       - name: AAA config
