@@ -1,22 +1,16 @@
 ---
-  - name: CISCO devices configurations
-    hosts: all
+  - hosts: all
     gather_facts: False
+        
     connection: network_cli
-    
+  
     vars:
+     # ansible_user: admin
+    #  ansible_ssh_pass: cisco
       ansible_network_os: ios
-      ansible_command_timeout: 60
-      
+    
     tasks:
-      - name: AAA config
-        ios_config:
+    # Collect all facts from the device
+    - name: AAA config
+      ios_config:
           src: "AAA.j2"
-          
-      - name: SNMP config
-        ios_config:
-          src: "SNMP.j2"
-          
-      - name: interface config
-        ios_config:
-          src: "Interface.j2"
