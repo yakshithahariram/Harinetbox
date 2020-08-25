@@ -20,3 +20,15 @@
             - tacacs-server host 192.168.1.25 key testing123
             - tacacs-server host 192.168.2.25 key testing123
           provider: "{{ ios_provider }}"
+      - name: SNMP configurations for cisco devices
+        ios_config:
+          commands:
+            - snmp-server community respirolab RO
+            - snmp-server community respirolabwrite RW 10
+            - snmp-server trap-source Loopback1
+            - snmp-server host 192.168.1.25
+            - snmp-server location Sydney
+            - snmp-server contact lab@respiro.com.au
+            - snmp-server system-shutdown
+          provider: "{{ ios_provider }}"
+            
