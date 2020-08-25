@@ -6,19 +6,20 @@
     
     vars:
       ansible_network_os: ios
+      ansible_command_timeout: 60
       
     tasks:
       - name: AAA config
         ios_config:
           src: "AAA.j2"
-          timeout: 60
+          ansible_command_timeout: 60
           
       - name: SNMP config
         ios_config:
           src: "SNMP.j2"
-          timeout: 60
+          ansible_command_timeout: 60
           
       - name: interface config
         ios_config:
           src: "Interface.j2"
-          timeout: 60
+          ansible_command_timeout: 60
