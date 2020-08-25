@@ -7,12 +7,12 @@
       ios_provider:
         host: all
       ansible_network_os: ios
-
+      ansible_command_timeout: 60
     tasks:
       - name: AAA configurations for cisco devices
         ios_config:
           src: "AAA.j2"
-          provider: "{{ ios_provider }}"
+          provider: "{{ cli }}"
 
       - name: SNMP configurations for cisco devices
         ios_config:
