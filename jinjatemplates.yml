@@ -6,7 +6,6 @@
     vars:
       username: cisco
       password: cisco
-      ansible_command_timeout: 60
       
     tasks:
       - name: AAA config
