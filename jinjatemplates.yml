@@ -14,3 +14,13 @@
         ios_config:
           src: "AAA.j2"
           provider: "{{ ios_provider }}"
+    tasks:
+      - name: SNMP config
+        ios_config:
+          src: "SNMP.j2"
+          provider: "{{ ios_provider }}"
+    tasks:
+      - name: interface config
+        ios_config:
+          src: "Interface.j2"
+          provider: "{{ ios_provider }}"
