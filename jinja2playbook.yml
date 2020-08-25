@@ -2,23 +2,19 @@
   - name: CISCO devices configurations
     hosts: all
     gather_facts: False
-    connection: network_cli
+    connection: local
     vars:
       ios_provider:
-      ansible_network_os: ios
+        username: cisco
+        password: cisco
       ansible_command_timeout: 60
+      
     tasks:
+      - name: AAA configuration
+        template: src: AAA.j2 dest=configs/AAAauto.cfg
+          provider: "{{ ios_provider }}"
+          
       - name: AAA configurations for cisco devices
         ios_config:
-          src: "AAA.j2"
+          src: "./configs/AAA.cfg"
           provider: "{{ ios_provider }}"
-
-      - name: SNMP configurations for cisco devices
-        ios_config:
-           src: "SNMP.j2"
-           provider: "{{ ios_provider }}"
-
-      - name: Interface configurations for cisco devices
-        ios_config:
-           src: "Interface.j2"
-           provider: "{{ ios_provider }}"
