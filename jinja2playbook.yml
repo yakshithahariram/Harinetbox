@@ -11,7 +11,7 @@
       
     tasks:
       - name: AAA configuration
-        template: src: AAA.j2 dest=configs/AAAauto.cfg
+        template: src=AAA.j2 dest=configs/AAAauto.cfg
           provider: "{{ ios_provider }}"
           
       - name: AAA configurations for cisco devices
