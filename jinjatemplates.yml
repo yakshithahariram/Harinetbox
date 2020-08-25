@@ -12,12 +12,10 @@
         ios_config:
           src: "AAA.j2"
           
-    tasks:
       - name: SNMP config
         ios_config:
           src: "SNMP.j2"
           
-    tasks:
       - name: interface config
         ios_config:
           src: "Interface.j2"
