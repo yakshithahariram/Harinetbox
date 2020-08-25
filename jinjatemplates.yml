@@ -11,5 +11,6 @@
       
     tasks:
       - name: AAA config
-        src: "AAA.j2"
-        provider: "{{ ios_provider }}"
+        ios_config:
+          src: "AAA.j2"
+          provider: "{{ ios_provider }}"
