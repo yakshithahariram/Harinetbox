@@ -3,10 +3,7 @@
     hosts: all
     gather_facts: False
     connection: local
-    vars:
-      username: cisco
-      password: cisco
-      
+    
     tasks:
       - name: AAA config
         ios_config:
