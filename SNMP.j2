@@ -1,15 +1,13 @@
----
-  - hosts: all
-    gather_facts: False
-        
-    connection: network_cli
-  
-    vars:
-     # ansible_user: admin
-    #  ansible_ssh_pass: cisco
-      ansible_network_os: ios
-    
-    tasks:
-    - name: SNMP config
-      ios_config:
-          src: "SNMP.j2"
+snmp-server community respirolab RO
+
+snmp-server community respirolabwrite RW 10
+
+snmp-server trap-source Loopback1
+
+snmp-server host 192.168.1.25 respirolab
+
+snmp-server location Sydney
+
+snmp-server contact lab@respiro.com.au
+
+snmp-server system-shutdown
