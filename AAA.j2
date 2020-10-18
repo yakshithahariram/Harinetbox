@@ -1,6 +1,16 @@
-aaa new-model
-aaa authentication login default group tacacs+ local
-aaa authorization exec default group tacacs+ local
-username cisco privilege 15 secret cisco
-tacacs-server host 192.168.1.25 key testing123
-tacacs-server host 192.168.2.25 key testing123
+---
+  - hosts: all
+    gather_facts: False
+        
+    connection: network_cli
+  
+    vars:
+     # ansible_user: admin
+    #  ansible_ssh_pass: cisco
+      ansible_network_os: ios
+    
+    tasks:
+    # Collect all facts from the device
+    - name: AAA config
+      ios_config:
+          src: "AAA.j2"
