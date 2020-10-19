@@ -1,0 +1,15 @@
+---
+  - hosts: all
+    gather_facts: False
+        
+    connection: network_cli
+  
+    vars:
+     # ansible_user: admin
+    #  ansible_ssh_pass: cisco
+      ansible_network_os: ios
+    
+    tasks:
+    - name: SNMP config
+      ios_config:
+          src: "SNMP.j2"
