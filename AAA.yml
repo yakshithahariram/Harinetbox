@@ -1,0 +1,16 @@
+---
+  - hosts: all
+    gather_facts: False
+        
+    connection: network_cli
+  
+    vars:
+     # ansible_user: admin
+    #  ansible_ssh_pass: cisco
+      ansible_network_os: ios
+    
+    tasks:
+    # Collect all facts from the device
+    - name: AAA config
+      ios_config:
+          src: "AAA.j2"
