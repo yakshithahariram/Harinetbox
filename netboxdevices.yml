@@ -2,7 +2,7 @@
 # Example command line: ansible-inventory -v --list -i netbox_inventory.yml
 
 plugin: netbox
-api_endpoint: 'http://192.168.1.224:4430'
+api_endpoint: 'https://192.168.1.224:4430'
 token: 'd8cae866e96f49eabb58ae164d27f825e439e795'
 validate_certs: False
 config_context: False
