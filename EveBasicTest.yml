@@ -16,4 +16,4 @@
       
     - name: DISPLAY IOS HOST & PORT NUMBER
       debug:
-        msg: "The port for {{ ansible_net_hostname }} is 
+        msg: "The port for {{ ansible_net_hostname }}
