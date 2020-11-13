@@ -13,6 +13,8 @@
     # Collect all facts from the device
     - name: IOS FACTS
       ios_facts:
+        # gather_subset:
+        #  - "hardware"
       
     - name: DISPLAY IOS HOST & PORT NUMBER
       debug:
