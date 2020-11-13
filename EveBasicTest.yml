@@ -13,8 +13,7 @@
     # Collect all facts from the device
     - name: IOS FACTS
       ios_facts:
-      os_port_facts:
-       # gather_subset:
+        # gather_subset:
         #  - "hardware"
     
     - name: Port FACTS
