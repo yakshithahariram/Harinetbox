@@ -12,11 +12,10 @@
     tasks:
     # Collect all facts from the device
     - name: IOS FACTS
-      
       ios_facts:
        # gather_subset:
         #  - "hardware"
         
     - name: DISPLAY IOS HOST & PORT NUMBER
       debug:
-        msg: "The port for {{ ansible_net_hostname }} is : {{ ansible_net_port }}"
+        msg: "The port for {{ ansible_net_hostname }} is : {{ netbox.netbox.netbox_console_port }}"
