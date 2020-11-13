@@ -1,0 +1,39 @@
+---
+  - hosts: all
+    gather_facts: False
+        
+    connection: network_cli
+  
+    vars:
+     # ansible_user: admin
+    #  ansible_ssh_pass: cisco
+      ansible_network_os: ios
+    
+    tasks:
+    # Collect all facts from the device
+    - name: IOS FACTS
+      
+      ios_facts:
+       # gather_subset:
+        #  - "hardware"
+ 
+    - name: DISPLAY IOS HOSTNAME
+      debug:
+        msg: "The hostname is: {{ ansible_net_hostname }}"
+ 
+    - name: DISPLAY IOS OS
+      debug:
+        msg: "The OS is: {{ ansible_net_iostype }}"
+    
+    - name: DISPLAY IOS VERSION
+      debug:
+        msg: "The OS version is: {{ ansible_net_version }}"
+
+    - name: DISPLAY IOS SYSTEM
+      debug:
+        msg: "The hostname is: {{ ansible_net_system }}"
+    
+    - name: DISPLAY  NOS SERIAL NUMBER
+      debug:
+        msg: "The serial number is: {{ ansible_net_serialnum }}"
+    
