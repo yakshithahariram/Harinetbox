@@ -17,8 +17,8 @@
        # gather_subset:
         #  - "hardware"
     
-     - name: IOS FACTS
-       os_port_facts:
+    - name: Port FACTS
+      os_port_facts:
       
     - name: DISPLAY IOS HOST & PORT NUMBER
       debug:
