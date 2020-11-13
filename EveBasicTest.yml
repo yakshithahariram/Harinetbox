@@ -26,5 +26,3 @@
         ansible.netcommon.cli_command:
           command: show ip int br
         register: result
-        debug:
-          msg: "The port for {{ result }}
