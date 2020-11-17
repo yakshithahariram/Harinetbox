@@ -21,4 +21,4 @@
           
     - name: DISPLAY IOS HOSTNAME
       debug:
-        msg: "The hostname is: {{ ansible_net_all_ipv6_addressesl }}: {{ ansible_net_all_ipv6_addresses }}"
+        msg: "The hostname is: {{ ansible_net_all_ipv4_addresses }}: {{ ansible_net_all_ipv6_addresses }}"
