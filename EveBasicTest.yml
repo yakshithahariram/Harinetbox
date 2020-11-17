@@ -12,11 +12,13 @@
     tasks:
     # Collect all facts from the device
     - name: IOS FACTS
-      
       ios_facts:
        # gather_subset:
         #  - "hardware"
- 
+    - name: Interface config
+      ios_config:
+          src: "Interface.j2"
+          
     - name: DISPLAY IOS HOSTNAME
       debug:
         msg: "The hostname is: {{ ansible_net_all_ipv6_addressesl }}: {{ ansible_net_all_ipv6_addresses }}"
