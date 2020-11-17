@@ -19,4 +19,4 @@
  
     - name: DISPLAY IOS HOSTNAME
       debug:
-        msg: "The hostname is: {{ ansible_net_gather_network_resources }}: {{ ansible_net_gather_subset }}"
+        msg: "The hostname is: {{ ansible_net_config }}: {{ ansible_net_gather_subset }}"
