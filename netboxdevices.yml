@@ -3,7 +3,7 @@
 
 plugin: netbox
 api_endpoint: 'https://192.168.1.224:4430'
-token: 'd8cae866e96f49eabb58ae164d27f825e439e795'
+token: 'f857d283c8a38333198893d4d99bce13cb45a1ce'
 validate_certs: False
 config_context: False
 strict: no
